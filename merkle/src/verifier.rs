@@ -10,9 +10,12 @@ pub fn run(proof_file: &String) {
 
 
 fn verify_merkle_proof(merkle_proof: Box<MerkleProof>) {
-    let root = decode_hash("1qIbsvuF6FrhNjMD4p06srUye6G4FfFINDDkNfKUpTs=");
+    // let root = decode_hash("1qIbsvuF6FrhNjMD4p06srUye6G4FfFINDDkNfKUpTs=");
+    // use root generated from prover. remember to rebuild to run
+    let root = decode_hash("xMUi3TVE4yvKXoA4Xrsmzw0Otb51PxnjiFXqPwovXyg=");
     let computed_root = compute_merkle_root_from_merkle_proof(merkle_proof);
     println!("computed_root: {:?}", computed_root);
+    println!("root: {:?}", root);
     assert_eq!(computed_root, root);
 }
 
